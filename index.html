@@ -1,171 +1,360 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>AI Shopping Assistant – Find Deals Faster with AI</title>
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-        body {
-            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
-            line-height: 1.6;
-            color: #1f2937;
-            background: #f9fafb;
-            padding: 20px;
-        }
-        .container {
-            max-width: 900px;
-            margin: 0 auto;
-            background: white;
-            border-radius: 24px;
-            padding: 40px;
-            box-shadow: 0 4px 6px rgba(0,0,0,0.05);
-        }
-        h1 {
-            color: #3b82f6;
-            margin-bottom: 16px;
-            font-size: 2rem;
-            display: flex;
-            align-items: center;
-            gap: 10px;
-        }
-        .badge {
-            background: #e5e7eb;
-            padding: 6px 12px;
-            border-radius: 30px;
-            font-size: 0.8rem;
-            font-weight: 500;
-            display: inline-block;
-            margin-bottom: 20px;
-        }
-        .cta {
-            background: #3b82f6;
-            color: white;
-            border: none;
-            padding: 12px 28px;
-            border-radius: 40px;
-            font-size: 1rem;
-            font-weight: 600;
-            cursor: pointer;
-            text-decoration: none;
-            display: inline-block;
-            margin: 16px 0;
-            transition: background 0.2s;
-        }
-        .cta:hover {
-            background: #2563eb;
-        }
-        .install-steps {
-            background: #f3f4f6;
-            padding: 20px;
-            border-radius: 16px;
-            margin: 20px 0;
-        }
-        .install-steps code {
-            background: #e5e7eb;
-            padding: 2px 6px;
-            border-radius: 8px;
-            font-family: monospace;
-        }
-        .feature-grid {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 16px;
-            margin: 20px 0;
-        }
-        .feature-card {
-            flex: 1;
-            min-width: 180px;
-            background: #f9fafb;
-            padding: 16px;
-            border-radius: 16px;
-            border-left: 3px solid #3b82f6;
-        }
-        footer {
-            margin-top: 40px;
-            padding-top: 20px;
-            border-top: 1px solid #e5e7eb;
-            font-size: 0.8rem;
-            color: #6b7280;
-            text-align: center;
-        }
-        .affiliate-note {
-            background: #fef3c7;
-            padding: 8px 12px;
-            border-radius: 12px;
-            font-size: 0.8rem;
-            margin: 20px 0;
-        }
-        @media (max-width: 640px) {
-            .container { padding: 24px; }
-            h1 { font-size: 1.5rem; }
-        }
-    </style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <title>CheerCart – Your cheerful AI shopping assistant</title>
+  <meta name="description" content="CheerCart is a free AI shopping assistant Chrome extension. Search naturally, compare prices, and find the best deals across eBay and more.">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Inter', system-ui, -apple-system, 'Segoe UI', Roboto, Helvetica, sans-serif;
+      background: linear-gradient(145deg, #f9fafc 0%, #eef2f6 100%);
+      color: #1e293b;
+      line-height: 1.5;
+    }
+
+    /* Smooth scroll & focus */
+    html {
+      scroll-behavior: smooth;
+    }
+
+    .container {
+      max-width: 1280px;
+      margin: 0 auto;
+      padding: 0 24px;
+    }
+
+    /* Header / Nav */
+    .navbar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 20px 0;
+      flex-wrap: wrap;
+      gap: 16px;
+    }
+    .logo {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      font-size: 1.75rem;
+      font-weight: 700;
+      background: linear-gradient(135deg, #f97316, #3b82f6);
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+    }
+    .logo-icon {
+      font-size: 2rem;
+    }
+    .nav-links {
+      display: flex;
+      gap: 32px;
+      align-items: center;
+    }
+    .nav-links a {
+      text-decoration: none;
+      color: #334155;
+      font-weight: 500;
+      transition: color 0.2s;
+    }
+    .nav-links a:hover {
+      color: #f97316;
+    }
+
+    /* Hero section */
+    .hero {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+      padding: 60px 0 40px;
+    }
+    .badge {
+      background: rgba(249,115,22,0.1);
+      color: #f97316;
+      padding: 6px 16px;
+      border-radius: 40px;
+      font-size: 0.85rem;
+      font-weight: 600;
+      margin-bottom: 24px;
+      backdrop-filter: blur(4px);
+    }
+    .hero h1 {
+      font-size: 3.5rem;
+      font-weight: 800;
+      background: linear-gradient(135deg, #1e293b, #3b82f6);
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+      margin-bottom: 20px;
+      line-height: 1.2;
+    }
+    .hero p {
+      font-size: 1.25rem;
+      color: #475569;
+      max-width: 700px;
+      margin-bottom: 32px;
+    }
+    .cta-group {
+      display: flex;
+      gap: 20px;
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+    .btn-primary {
+      background: linear-gradient(95deg, #f97316, #ea580c);
+      color: white;
+      padding: 14px 32px;
+      border-radius: 60px;
+      font-weight: 600;
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      transition: transform 0.2s, box-shadow 0.2s;
+      box-shadow: 0 8px 20px rgba(249,115,22,0.3);
+    }
+    .btn-primary:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 15px 25px -8px rgba(249,115,22,0.4);
+    }
+    .btn-secondary {
+      background: white;
+      border: 1px solid #e2e8f0;
+      color: #1e293b;
+      padding: 14px 32px;
+      border-radius: 60px;
+      font-weight: 600;
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      transition: all 0.2s;
+    }
+    .btn-secondary:hover {
+      border-color: #f97316;
+      color: #f97316;
+      background: #fff7ed;
+    }
+
+    /* Features grid */
+    .features {
+      padding: 80px 0;
+      text-align: center;
+    }
+    .section-title {
+      font-size: 2rem;
+      font-weight: 700;
+      margin-bottom: 16px;
+    }
+    .section-sub {
+      color: #475569;
+      max-width: 600px;
+      margin: 0 auto 48px;
+    }
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 32px;
+      margin-top: 20px;
+    }
+    .feature-card {
+      background: white;
+      padding: 28px 20px;
+      border-radius: 32px;
+      box-shadow: 0 10px 25px -5px rgba(0,0,0,0.05);
+      transition: all 0.25s;
+      border: 1px solid #eef2ff;
+    }
+    .feature-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 20px 30px -12px rgba(0,0,0,0.1);
+      border-color: #fde68a;
+    }
+    .feature-icon {
+      font-size: 2.5rem;
+      margin-bottom: 16px;
+    }
+    .feature-card h3 {
+      font-size: 1.35rem;
+      margin-bottom: 12px;
+    }
+    .feature-card p {
+      color: #475569;
+      font-size: 0.95rem;
+    }
+
+    /* Installation steps */
+    .install {
+      background: #ffffffd9;
+      backdrop-filter: blur(4px);
+      border-radius: 48px;
+      padding: 48px 40px;
+      margin: 40px 0;
+      box-shadow: 0 20px 35px -10px rgba(0,0,0,0.05);
+      border: 1px solid rgba(203,213,225,0.4);
+    }
+    .steps {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      gap: 24px;
+      margin-top: 32px;
+    }
+    .step {
+      flex: 1;
+      min-width: 180px;
+      text-align: center;
+    }
+    .step-number {
+      width: 48px;
+      height: 48px;
+      background: #f97316;
+      color: white;
+      font-weight: bold;
+      font-size: 1.5rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 60px;
+      margin: 0 auto 16px;
+    }
+
+    /* Footer */
+    .footer {
+      border-top: 1px solid #e2e8f0;
+      padding: 40px 0 30px;
+      margin-top: 60px;
+      text-align: center;
+      color: #475569;
+      font-size: 0.85rem;
+    }
+    .footer a {
+      color: #f97316;
+      text-decoration: none;
+    }
+    .disclosure {
+      background: #fef9c3;
+      padding: 10px 16px;
+      border-radius: 40px;
+      display: inline-block;
+      font-size: 0.8rem;
+      margin-top: 20px;
+    }
+
+    @media (max-width: 768px) {
+      .hero h1 { font-size: 2.5rem; }
+      .container { padding: 0 20px; }
+      .navbar { flex-direction: column; }
+      .install { padding: 32px 20px; }
+    }
+  </style>
 </head>
 <body>
-    <div class="container">
-        <h1>AI Shopping Assistant</h1>
-        <div class="badge">Beta – Install manually now</div>
-        
-        <p><strong>Your personal AI‑powered shopping concierge.</strong> Stop wasting hours searching for deals. Type what you want – get instant product cards from eBay and more, all with one click.</p>
-        
-        <a href="#" id="downloadLink" class="cta">Download Extension (ZIP)</a>
-        <p style="font-size: 0.8rem; margin-top: -10px;">No Chrome Web Store yet? Install manually – instructions below.</p>
-        
-        <h2>✨ How It Works</h2>
-        <div class="feature-grid">
-            <div class="feature-card"> <strong>Natural Language Search</strong><br>“Best wireless mouse under $30”</div>
-            <div class="feature-card"> <strong>Real Deals</strong><br>Live prices from eBay & more</div>
-            <div class="feature-card"> <strong>One‑Click Buy</strong><br>Copy link or go directly to seller</div>
-            <div class="feature-card"> <strong>AI Powered</strong><br>Smarter recommendations over time</div>
-        </div>
-        
-        <h2> Manual Installation (3 minutes)</h2>
-        <div class="install-steps">
-            <ol style="margin-left: 20px;">
-                <li>Download the ZIP file using the button above.</li>
-                <li>Extract the folder to a place you won't delete.</li>
-                <li>Open Chrome and go to <code>chrome://extensions/</code>.</li>
-                <li>Turn on <strong>Developer mode</strong> (top right).</li>
-                <li>Click <strong>"Load unpacked"</strong> and select the extracted folder.</li>
-                <li>The AI Shopping Assistant icon will appear in your toolbar – click it to start!</li>
-            </ol>
-        </div>
-        
-        <h2>🔧 What You Get</h2>
-        <ul>
-            <li>✅ Instant product cards (image, title, price, source)</li>
-            <li>✅ One‑click "Buy Now" links (affiliate‑tracked)</li>
-            <li>✅ Copy any product link to share or save</li>
-            <li>✅ Search history stored locally (you can clear it anytime)</li>
-            <li>✅ More stores (ShareASale, Walmart, Amazon) coming soon</li>
-        </ul>
-        
-        <div class="affiliate-note">
-            🔗 <strong>Affiliate Disclosure</strong> – As an eBay Partner, we earn commissions on qualifying purchases. This does not affect the price you pay.
-        </div>
-        
-        <footer>
-            <p>© 2026 AI Shopping Assistant | <a href="#" id="privacyLink">Privacy Policy</a></p>
-            <p style="margin-top: 8px;">*eBay and the eBay logo are trademarks of eBay Inc. Our extension is not endorsed by eBay.</p>
-        </footer>
-    </div>
 
-    <script>
-        // For now, the download link points to a placeholder.
-        // Replace this with your actual ZIP file URL (e.g., from Google Drive or Dropbox).
-        document.getElementById('downloadLink').addEventListener('click', (e) => {
-            e.preventDefault();
-            alert('Download link will be added once you package your extension.\n\nUpload your extension folder as a ZIP file to Google Drive or Dropbox and paste the shareable link here.');
-        });
-        document.getElementById('privacyLink').addEventListener('click', (e) => {
-            e.preventDefault();
-            alert('Privacy policy will be hosted here soon.\nFor now, you can state that we only store search queries locally and do not collect personal data.');
-        });
-    </script>
+<div class="container">
+  <!-- Navigation -->
+  <div class="navbar">
+    <div class="logo">
+      <span class="logo-icon">🛒</span>
+      <span>CheerCart</span>
+    </div>
+    <div class="nav-links">
+      <a href="#features">Features</a>
+      <a href="#install">Install</a>
+      <a href="#download">Download</a>
+    </div>
+  </div>
+
+  <!-- Hero -->
+  <div class="hero">
+    <div class="badge">✨ AI‑powered · Free forever · No sign‑up ✨</div>
+    <h1>Your cheerful AI shopping assistant</h1>
+    <p>Just type naturally – “pink Sony headphones with 3m wire” – and get instant product cards from eBay & more. Save time, save money.</p>
+    <div class="cta-group">
+      <a href="#download" class="btn-primary">⬇️ Download CheerCart (ZIP)</a>
+      <a href="#install" class="btn-secondary">📖 How to install</a>
+    </div>
+  </div>
+
+  <!-- Features section -->
+  <div id="features" class="features">
+    <h2 class="section-title">Why you'll love CheerCart</h2>
+    <div class="section-sub">Smart, fast, and built for real shoppers</div>
+    <div class="grid">
+      <div class="feature-card">
+        <div class="feature-icon">🧠</div>
+        <h3>Natural language search</h3>
+        <p>“I need a pink Sony headphone with 3m wire” → finds exactly that.</p>
+      </div>
+      <div class="feature-card">
+        <div class="feature-icon">⚡</div>
+        <h3>Real‑time eBay deals</h3>
+        <p>Live prices, images, and direct affiliate links – all in one popup.</p>
+      </div>
+      <div class="feature-card">
+        <div class="feature-icon">🌙</div>
+        <h3>Dark / Light mode</h3>
+        <p>Follows your system theme, plus manual toggle.</p>
+      </div>
+      <div class="feature-card">
+        <div class="feature-icon">🎙️</div>
+        <h3>Voice search</h3>
+        <p>Click the mic and speak – hands‑free shopping.</p>
+      </div>
+      <div class="feature-card">
+        <div class="feature-icon">📋</div>
+        <h3>One‑click copy</h3>
+        <p>Copy any product link instantly, no pop‑ups.</p>
+      </div>
+      <div class="feature-card">
+        <div class="feature-icon">🔒</div>
+        <h3>Privacy first</h3>
+        <p>No tracking, no data selling. Your searches stay yours.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- Download & Install -->
+  <div id="install" class="install">
+    <h2 style="text-align:center; margin-bottom:12px;">📦 Manual installation (2 minutes)</h2>
+    <p style="text-align:center; color:#475569;">Because CheerCart is not yet on the Chrome Web Store, you can load it manually:</p>
+    <div class="steps">
+      <div class="step"><div class="step-number">1</div><strong>Download ZIP</strong><br>Click the download button below & save the file.</div>
+      <div class="step"><div class="step-number">2</div><strong>Unzip</strong><br>Extract the folder to a safe place.</div>
+      <div class="step"><div class="step-number">3</div><strong>Open Extensions</strong><br>Go to <code>chrome://extensions/</code> in Chrome.</div>
+      <div class="step"><div class="step-number">4</div><strong>Load unpacked</strong><br>Turn on “Developer mode” → “Load unpacked” → select the folder.</div>
+    </div>
+    <div style="text-align:center; margin-top: 32px;">
+      <a id="downloadLink" href="cheercart.zip" class="btn-primary" style="background: #3b82f6; box-shadow: none;">⬇️ Download CheerCart (ZIP file)</a>
+      <p style="font-size:0.75rem; margin-top:16px;">The ZIP contains the extension folder. After loading, the CheerCart icon appears in your toolbar.</p>
+    </div>
+  </div>
+
+  <!-- Footer & disclosure -->
+  <div class="footer">
+    <p>© 2026 CheerCart – Made for smart shoppers</p>
+    <div class="disclosure">
+      🔗 As an eBay Partner, we earn from qualifying purchases. This does not affect your price.
+    </div>
+    <p style="margin-top: 20px;">
+      <a href="#">Privacy Policy</a> • <a href="#">Contact</a>
+    </p>
+  </div>
+</div>
+
+<!-- Simple script to ensure download works -->
+<script>
+  // If you ever host the ZIP under a different name, update the href above.
+  // For now, it points to "cheercart.zip" in the same folder.
+  console.log("CheerCart landing page ready");
+</script>
 </body>
 </html>
